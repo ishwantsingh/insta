@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import dummyData from "./dummy-data";
 import "./App.css";
+import PropTypes from "prop-types";
 import PostContainer from "./components/PostContainer/PostContainer";
 import SearchBar from "./components/SearchBar/SearchBar";
 
@@ -25,5 +26,10 @@ class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  SearchBar: PropTypes.func,
+  PostContainer: PropTypes.func
+};
 
 export default App;

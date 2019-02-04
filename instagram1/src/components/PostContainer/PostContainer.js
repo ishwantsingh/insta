@@ -1,6 +1,7 @@
 import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
 import "./PostContainer.css";
+import PropTypes from "prop-types";
 
 function PostContainer(props) {
   return (
@@ -15,7 +16,12 @@ function PostContainer(props) {
         <h1 className="userName">{props.post.username}</h1>
       </div>
       <div className="postImage">
-        <img src={props.post.imageUrl} className="pImages" alt="Post Image" />
+        <img
+          src={props.post.imageUrl}
+          className="pImages"
+          alt="Post Image"
+          //   width="100%"
+        />
       </div>
       <div>
         {<CommentSection comments={props.post.comments} />} <hr />
@@ -23,5 +29,10 @@ function PostContainer(props) {
     </div>
   );
 }
+
+PostContainer.propTypes = {
+  username: PropTypes.string,
+  CommentSection: PropTypes.func
+};
 
 export default PostContainer;

@@ -1,6 +1,7 @@
 import React from "react";
 import image1 from "../SearchBar/ig_search_bar.png";
 import "./SearchBar.css";
+import PropTypes from "prop-types";
 
 function SearchBar(props) {
   return (
@@ -9,5 +10,9 @@ function SearchBar(props) {
     </div>
   );
 }
+
+// SearchBar.propTypes = {
+
+// }
 
 export default SearchBar;
