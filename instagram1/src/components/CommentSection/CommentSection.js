@@ -23,11 +23,18 @@ function CommentSection(props) {
       </div>
 
       <div>
-        <input
-          type="text"
-          placeholder="Comment here!"
-          className="commentInput"
-        />
+        <form onSubmit={props.addNewComment}>
+          <input
+            type="text"
+            placeholder="Comment here!"
+            className="commentInput"
+            onChange={props.changeHandler}
+            value={props.newComment}
+          />
+          <button type="submit" onClick={props.addNewComment}>
+            Add Comment
+          </button>
+        </form>
       </div>
     </div>
   );
