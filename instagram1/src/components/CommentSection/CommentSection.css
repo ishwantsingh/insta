@@ -1,0 +1,19 @@
+.postComment {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem;
+}
+.postCommentEach {
+  display: flex;
+  flex-direction: row;
+}
+h1 {
+  font-size: 23px;
+  margin: auto 13px auto 0;
+}
+h3 {
+  font-size: 17px;
+}
+.commentInput {
+  margin: 5px 0 10px 0;
+}
