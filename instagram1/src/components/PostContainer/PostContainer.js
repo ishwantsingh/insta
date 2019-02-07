@@ -11,7 +11,7 @@ function PostContainer(props) {
         <img
           src={props.post.thumbnailUrl}
           className="thumbnails"
-          alt="Thumbnail Image"
+          alt="Thumbnail"
         />
         <h1 className="userName">{props.post.username}</h1>
       </div>
@@ -19,7 +19,7 @@ function PostContainer(props) {
         <img
           src={props.post.imageUrl}
           className="pImages"
-          alt="Post Image"
+          alt="Post"
           //   width="100%"
         />
       </div>
@@ -27,12 +27,13 @@ function PostContainer(props) {
         {
           <CommentSection
             comments={props.post.comments}
-            addNewComment={props.addNewComment}
+            addNewComment={props.addNewCommentPls}
+            comments5={props.comments5}
             index={props.idx}
             changeHandler={props.changeHandler}
             newComment={props.newComment}
           />
-        }{" "}
+        }
         <hr />
       </div>
     </div>

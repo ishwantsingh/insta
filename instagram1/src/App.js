@@ -10,8 +10,9 @@ class App extends Component {
     super(props);
     console.log("constructor running");
     this.state = {
+      dummyData: [],
       post: [],
-      comments: [],
+      comments5: [],
       newComment: []
     };
   }
@@ -33,15 +34,15 @@ class App extends Component {
     // console.log(this.state.newComment);
   };
 
-  addNewComment = (event, idx) => {
+  addNewComment = (event, index) => {
     event.preventDefault();
-    console.log(this.state.comments);
+    console.log(this.state.comments5);
     this.setState({
-      comments: [
-        ...this.state.comments,
+      comments5: [
+        ...this.state.comments5,
         {
-          text: this.state.newComment,
-          index: { idx }
+          text: "test",
+          index: { index }
         }
       ],
       newComment: ""
@@ -65,6 +66,7 @@ class App extends Component {
               index={this.idx}
               changeHandler={this.changeHandler}
               newComment={this.newComment}
+              comments5={this.comments5}
             />
           ))}
         </div>
