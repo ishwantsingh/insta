@@ -7,8 +7,8 @@ function CommentSection(props) {
     <div>
       {/* {console.log(props.comments[0].username)} */}
 
-      <div className="postComment">
-        <div className="postCommentEach">
+      <div>
+        {/* <div className="postCommentEach">
           <h1>{props.comments[0].username}</h1>
           <h3>{props.comments[0].text}</h3>
         </div>
@@ -19,6 +19,23 @@ function CommentSection(props) {
         <div className="postCommentEach">
           <h1>{props.comments[2].username}</h1>
           <h3>{props.comments[2].text}</h3>
+        </div> */}
+        <div className="postComment">
+          {console.log(props.displayComments)}
+          <h1 className="postCommentEach">
+            {props.displayComments.map((comment, index) => (
+              <div key={index} className="singleUser">
+                {comment.comments[index].username}:
+              </div>
+            ))}
+          </h1>
+          <h3 className="postCommentEach">
+            {props.displayComments.map((comment, index) => (
+              <div key={index} className="singleText">
+                {comment.comments[index].text}
+              </div>
+            ))}
+          </h3>
         </div>
       </div>
 
@@ -31,7 +48,9 @@ function CommentSection(props) {
             onChange={props.changeHandler}
             value={props.newComment}
           />
-          <button onClick={props.addNewComment}>Add Comment</button>
+          <button type="submit" onClick={props.addNewComment}>
+            Add Comment
+          </button>
         </form>
       </div>
     </div>

@@ -10,7 +10,6 @@ class App extends Component {
     super(props);
     console.log("constructor running");
     this.state = {
-      dummyData: [],
       post: [],
       comments5: [],
       newComment: []
@@ -19,7 +18,7 @@ class App extends Component {
 
   componentDidMount() {
     console.log("CDM is running");
-    this.setState({ post: this.dummyData });
+    this.setState({ post: dummyData });
   }
 
   // changeHandler = event => {
@@ -35,16 +34,20 @@ class App extends Component {
   };
 
   addNewComment = (event, index) => {
+    // console.log(this.state.post);
     event.preventDefault();
-    console.log(this.state.comments5);
+    //map post to get an new array
+    let updatedPost = this.state.post.map((postItem, index) => {
+      postItem.comments.push({
+        username: "martinseludo",
+        text: this.state.newComment,
+        index: { index }
+      });
+
+      return postItem;
+    });
     this.setState({
-      comments5: [
-        ...this.state.comments5,
-        {
-          text: "test",
-          index: { index }
-        }
-      ],
+      post: updatedPost,
       newComment: ""
     });
   };
@@ -63,10 +66,9 @@ class App extends Component {
               post={post}
               key={id}
               addNewComment={this.addNewComment}
-              index={this.idx}
               changeHandler={this.changeHandler}
               newComment={this.newComment}
-              comments5={this.comments5}
+              displayComments={this.state.post}
             />
           ))}
         </div>

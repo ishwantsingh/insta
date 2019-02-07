@@ -1,18 +1,21 @@
 .postComment {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   margin: 0.5rem;
+  align-content: center;
 }
 .postCommentEach {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
+  align-self: center;
 }
-h1 {
+.singleUser {
   font-size: 23px;
-  margin: auto 13px auto 0;
+  margin: 10px 10px 10px 0;
 }
-h3 {
+.singleText {
   font-size: 17px;
+  margin: 15px 15px 15px 0;
 }
 .commentInput {
   margin: 5px 0 10px 0;

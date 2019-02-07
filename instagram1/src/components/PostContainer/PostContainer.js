@@ -27,15 +27,15 @@ function PostContainer(props) {
         {
           <CommentSection
             comments={props.post.comments}
-            addNewComment={props.addNewCommentPls}
-            comments5={props.comments5}
-            index={props.idx}
+            addNewComment={props.addNewComment}
             changeHandler={props.changeHandler}
             newComment={props.newComment}
+            displayComments={props.displayComments}
           />
         }
         <hr />
       </div>
+      {/* {console.log(props.displayComments)} */}
     </div>
   );
 }
