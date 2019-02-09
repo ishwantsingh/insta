@@ -28,3 +28,6 @@
 hr {
   width: 100%;
 }
+.like-div {
+  display: flex;
+}

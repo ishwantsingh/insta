@@ -12,7 +12,8 @@ class App extends Component {
     this.state = {
       post: [],
       comments5: [],
-      newComment: []
+      newComment: [],
+      likes: 0
     };
   }
 
@@ -29,7 +30,7 @@ class App extends Component {
   changeHandler = event => {
     // console.log(event.target.value);
 
-    this.setState({ newComment: event.target.value });
+    this.setState({ [event.target.name]: event.target.value });
     // console.log(this.state.newComment);
   };
 
@@ -52,6 +53,14 @@ class App extends Component {
     });
   };
 
+  likePost = event => {
+    event.preventDefault();
+    this.setState({
+      likes: this.state.likes + 1
+    });
+    // {console.log(this.state.likes);}
+  };
+
   render() {
     console.log("render running");
     return (
@@ -68,6 +77,8 @@ class App extends Component {
               addNewComment={this.addNewComment}
               changeHandler={this.changeHandler}
               newComment={this.newComment}
+              likePost={this.likePost}
+              likes={this.state.likes}
             />
           ))}
         </div>

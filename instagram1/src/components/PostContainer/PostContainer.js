@@ -23,6 +23,10 @@ function PostContainer(props) {
           //   width="100%"
         />
       </div>
+      <div className="like-div">
+        <h1>{props.likes}</h1>
+        <button onClick={props.likePost}>Like!</button>
+      </div>
       <div>
         {
           <CommentSection

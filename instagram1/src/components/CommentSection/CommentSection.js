@@ -33,6 +33,7 @@ function CommentSection(props) {
             type="text"
             placeholder="Comment here!"
             className="commentInput"
+            name="newComment"
             onChange={props.changeHandler}
             value={props.newComment}
           />
