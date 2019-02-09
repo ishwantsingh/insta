@@ -24,7 +24,7 @@ function PostContainer(props) {
         />
       </div>
       <div className="like-div">
-        <h1>{props.likes}</h1>
+        <h1>{props.likes} Likes!</h1>
         <button onClick={props.likePost}>Like!</button>
       </div>
       <div>
