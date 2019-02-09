@@ -30,7 +30,6 @@ function PostContainer(props) {
             addNewComment={props.addNewComment}
             changeHandler={props.changeHandler}
             newComment={props.newComment}
-            displayComments={props.displayComments}
           />
         }
         <hr />

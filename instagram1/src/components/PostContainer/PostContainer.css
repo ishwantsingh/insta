@@ -15,6 +15,7 @@
 }
 .userDiv {
   display: flex;
+  align-items: center;
   margin: 1rem;
   width: 100%;
 }

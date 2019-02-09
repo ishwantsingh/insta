@@ -68,7 +68,6 @@ class App extends Component {
               addNewComment={this.addNewComment}
               changeHandler={this.changeHandler}
               newComment={this.newComment}
-              displayComments={this.state.post}
             />
           ))}
         </div>

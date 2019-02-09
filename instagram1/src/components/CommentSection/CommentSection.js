@@ -8,31 +8,19 @@ function CommentSection(props) {
       {/* {console.log(props.comments[0].username)} */}
 
       <div>
-        {/* <div className="postCommentEach">
-          <h1>{props.comments[0].username}</h1>
-          <h3>{props.comments[0].text}</h3>
-        </div>
-        <div className="postCommentEach">
-          <h1>{props.comments[1].username}</h1>
-          <h3>{props.comments[1].text}</h3>
-        </div>
-        <div className="postCommentEach">
-          <h1>{props.comments[2].username}</h1>
-          <h3>{props.comments[2].text}</h3>
-        </div> */}
         <div className="postComment">
-          {console.log(props.displayComments)}
+          {/* {console.log(props.displayComments)} */}
           <h1 className="postCommentEach">
-            {props.displayComments.map((comment, index) => (
+            {props.comments.map((comment, index) => (
               <div key={index} className="singleUser">
-                {comment.comments[index].username}:
+                {comment.username}:
               </div>
             ))}
           </h1>
           <h3 className="postCommentEach">
-            {props.displayComments.map((comment, index) => (
+            {props.comments.map((comment, index) => (
               <div key={index} className="singleText">
-                {comment.comments[index].text}
+                {comment.text}
               </div>
             ))}
           </h3>
