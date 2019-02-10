@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import dummyData from "./dummy-data";
 import "./App.css";
 import PropTypes from "prop-types";
-import PostContainer from "./components/PostContainer/PostContainer";
+import PostsPage from "./components/PostContainer/PostsPage";
 import SearchBar from "./components/SearchBar/SearchBar";
+import Authenticate from "./components/Authentication/Authentication";
 
 class App extends Component {
   constructor(props) {
@@ -61,9 +62,21 @@ class App extends Component {
         likes: this.state.likes - 1
       });
     }
-
-    // {console.log(this.state.likes);}
   };
+
+  login = event => {
+    localStorage.setItem("username", "coolboi");
+    localStorage.setItem("password", "coolboi");
+    if (
+      event.target.value === localStorage.getItem("username") &&
+      event.target.value === localStorage.getItem("password")
+    ) {
+      localStorage.setItem("loggedIn", true);
+    }
+    localStorage.setItem("loggedIn", false);
+  };
+
+  // const login = localStorage.setItem('username','sosmartguy');
 
   render() {
     console.log("render running");
@@ -74,17 +87,13 @@ class App extends Component {
           <SearchBar />
         </div>
         <div>
-          {dummyData.map((post, id) => (
-            <PostContainer
-              post={post}
-              key={id}
-              addNewComment={this.addNewComment}
-              changeHandler={this.changeHandler}
-              newComment={this.newComment}
-              likePost={this.likePost}
-              likes={this.state.likes}
-            />
-          ))}
+          <PostsPage
+            addNewComment={this.addNewComment}
+            changeHandler={this.changeHandler}
+            newComment={this.newComment}
+            likePost={this.likePost}
+            likes={this.state.likes}
+          />
         </div>
       </div>
     );
@@ -93,7 +102,7 @@ class App extends Component {
 
 App.propTypes = {
   SearchBar: PropTypes.func,
-  PostContainer: PropTypes.func
+  PostsPage: PropTypes.func
 };
 
 export default App;

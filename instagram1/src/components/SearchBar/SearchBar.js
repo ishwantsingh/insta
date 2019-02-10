@@ -1,7 +1,7 @@
 import React from "react";
 import image1 from "../SearchBar/ig_search_bar.png";
 import "./SearchBar.css";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 function SearchBar(props) {
   return (
