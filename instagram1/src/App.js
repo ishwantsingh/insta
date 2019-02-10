@@ -13,7 +13,8 @@ class App extends Component {
       post: [],
       comments5: [],
       newComment: [],
-      likes: 0
+      likes: 0,
+      clicked: false
     };
   }
 
@@ -22,14 +23,8 @@ class App extends Component {
     this.setState({ post: dummyData });
   }
 
-  // changeHandler = event => {
-  //   // console.log(this.state.inputText);
-  //   this.setState({ [this.newComment]: event.target.value });
-  //   // console.log(this.state.inputText);
-  // };
   changeHandler = event => {
     // console.log(event.target.value);
-
     this.setState({ [event.target.name]: event.target.value });
     // console.log(this.state.newComment);
   };
@@ -55,9 +50,18 @@ class App extends Component {
 
   likePost = event => {
     event.preventDefault();
-    this.setState({
-      likes: this.state.likes + 1
-    });
+    if (!this.state.clicked) {
+      this.setState({
+        clicked: true,
+        likes: this.state.likes + 1
+      });
+    } else if (this.state.clicked) {
+      this.setState({
+        clicked: false,
+        likes: this.state.likes - 1
+      });
+    }
+
     // {console.log(this.state.likes);}
   };
 
@@ -82,10 +86,6 @@ class App extends Component {
             />
           ))}
         </div>
-
-        {/* search bar */}
-        {/* post container */}
-        {/* comment section */}
       </div>
     );
   }
