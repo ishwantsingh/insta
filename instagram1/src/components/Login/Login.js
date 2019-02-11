@@ -1,19 +1,15 @@
 import React from "react";
 
-const LoginPage = props => {
-  return (
-    <div>
-      <div>
-        <form onSubmit={props.login}>
-          <input name="username" type="text" placeholder="Enter Username" />
-          <input name="password" type="text" placeholder="Enter Password" />
-          <button type="submit" className="LoginButton">
-            Log In!
-          </button>
-        </form>
-      </div>
-    </div>
-  );
+const login = event => props => {
+  localStorage.setItem("username", "coolboi");
+  localStorage.setItem("password", "coolboi");
+  if (
+    event.target.value === localStorage.getItem("username") &&
+    event.target.value === localStorage.getItem("password")
+  ) {
+    localStorage.setItem("loggedIn", true);
+  }
+  localStorage.setItem("loggedIn", false);
 };
 
-export default LoginPage;
+export default login;

@@ -5,6 +5,7 @@ import PropTypes from "prop-types";
 import PostsPage from "./components/PostContainer/PostsPage";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Authenticate from "./components/Authentication/Authentication";
+import LoginPage from "./components/Login/LoginPage";
 
 class App extends Component {
   constructor(props) {
@@ -64,41 +65,36 @@ class App extends Component {
     }
   };
 
-  login = event => {
-    localStorage.setItem("username", "coolboi");
-    localStorage.setItem("password", "coolboi");
-    if (
-      event.target.value === localStorage.getItem("username") &&
-      event.target.value === localStorage.getItem("password")
-    ) {
-      localStorage.setItem("loggedIn", true);
-    }
-    localStorage.setItem("loggedIn", false);
-  };
-
   // const login = localStorage.setItem('username','sosmartguy');
 
   render() {
     console.log("render running");
     return (
-      <div className="App">
-        {/* {console.log(dummyData)} */}
+      <div>
         <div>
-          <SearchBar />
+          <AuthenticateItNow />
         </div>
-        <div>
-          <PostsPage
-            addNewComment={this.addNewComment}
-            changeHandler={this.changeHandler}
-            newComment={this.newComment}
-            likePost={this.likePost}
-            likes={this.state.likes}
-          />
+        <div className="App">
+          {/* {console.log(dummyData)} */}
+          <div>
+            <SearchBar />
+          </div>
+          <div>
+            <PostsPage
+              addNewComment={this.addNewComment}
+              changeHandler={this.changeHandler}
+              newComment={this.newComment}
+              likePost={this.likePost}
+              likes={this.state.likes}
+            />
+          </div>
         </div>
       </div>
     );
   }
 }
+
+const AuthenticateItNow = Authenticate(App);
 
 App.propTypes = {
   SearchBar: PropTypes.func,

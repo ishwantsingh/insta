@@ -15,14 +15,15 @@ const Authenticate = App => LoginPage => props => {
     }
 
     ConditionalRender = props => {
-      if (this.loggedIn) {
+      console.log(App);
+      if (!this.state.loggedIn) {
         return <App />;
       }
       return <LoginPage />;
     };
 
     render() {
-      console.log("auth render running");
+      console.log(this.state.loggedIn);
       return <this.ConditionalRender />;
     }
   };
