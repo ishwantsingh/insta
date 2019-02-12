@@ -1,15 +1,54 @@
-import React from "react";
+import React, { Component } from "react";
 
-const login = event => props => {
-  localStorage.setItem("username", "coolboi");
-  localStorage.setItem("password", "coolboi");
-  if (
-    event.target.value === localStorage.getItem("username") &&
-    event.target.value === localStorage.getItem("password")
-  ) {
-    localStorage.setItem("loggedIn", true);
+class Login extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      username: "",
+      password: ""
+    };
   }
-  localStorage.setItem("loggedIn", false);
-};
 
-export default login;
+  changeHandler = event => {
+    this.setState({ [event.target.name]: event.target.value });
+  };
+
+  submitForm = event => {
+    const username = this.state.username;
+    localStorage.setItem("username", username);
+  };
+
+  render() {
+    return (
+      <div>
+        <div>
+          <form>
+            <input
+              name="username"
+              type="text"
+              placeholder="Enter Username"
+              onChange={this.changeHandler}
+              value={this.state.username}
+            />
+            <input
+              name="password"
+              type="text"
+              placeholder="Enter Password"
+              onChange={this.changeHandler}
+              value={this.state.password}
+            />
+            <button
+              type="submit"
+              className="LoginButton"
+              onClick={this.submitForm}
+            >
+              Log In!
+            </button>
+          </form>
+        </div>
+      </div>
+    );
+  }
+}
+
+export default Login;

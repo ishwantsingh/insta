@@ -4,8 +4,8 @@ import "./App.css";
 import PropTypes from "prop-types";
 import PostsPage from "./components/PostContainer/PostsPage";
 import SearchBar from "./components/SearchBar/SearchBar";
-import Authenticate from "./components/Authentication/Authentication";
-import LoginPage from "./components/Login/LoginPage";
+import Authenticate from "./components/Authentication/Authenticate";
+import Login from "./components/Login/Login";
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +37,7 @@ class App extends Component {
     //map post to get an new array
     let updatedPost = this.state.post.map((postItem, index) => {
       postItem.comments.push({
-        username: "martinseludo",
+        username: localStorage.getItem("username"),
         text: this.state.newComment,
         index: { index }
       });
@@ -50,6 +50,7 @@ class App extends Component {
     });
   };
 
+  // like function
   likePost = event => {
     event.preventDefault();
     if (!this.state.clicked) {
@@ -65,21 +66,20 @@ class App extends Component {
     }
   };
 
-  // const login = localStorage.setItem('username','sosmartguy');
-
   render() {
     console.log("render running");
     return (
       <div>
-        <div>
-          <AuthenticateItNow />
-        </div>
+        {/* <div>
+          
+        </div> */}
         <div className="App">
           {/* {console.log(dummyData)} */}
           <div>
             <SearchBar />
           </div>
           <div>
+            {console.log("postPage rendering.damn it maybe")}
             <PostsPage
               addNewComment={this.addNewComment}
               changeHandler={this.changeHandler}
@@ -94,11 +94,9 @@ class App extends Component {
   }
 }
 
-const AuthenticateItNow = Authenticate(App);
-
 App.propTypes = {
   SearchBar: PropTypes.func,
   PostsPage: PropTypes.func
 };
 
-export default App;
+export default Authenticate(App)(Login);
