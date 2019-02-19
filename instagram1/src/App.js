@@ -6,6 +6,7 @@ import PostsPage from "./components/PostContainer/PostsPage";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Authenticate from "./components/Authentication/Authenticate";
 import Login from "./components/Login/Login";
+import styled, { css } from "styled-components";
 
 class App extends Component {
   constructor(props) {

@@ -1,32 +1,63 @@
 import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
-import "./PostContainer.css";
 import PropTypes from "prop-types";
+import styled, { css } from "styled-components";
+
+const StyledThumbnail = styled.img`
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin: 0 10px 0 0;
+`;
+
+const StyledUserDiv = styled.div`
+  display: flex;
+  align-items: center;
+  margin: 1rem;
+  width: 100%;
+`;
+
+const StyledUsername = styled.h1`
+  font-size: 23px;
+`;
+
+const StyledPost = styled.div`
+  width: 100%;
+`;
+
+const StyledPostImage = styled.img`
+  width: 100%;
+`;
+
+const StyledLikeDiv = styled.div`
+  display: flex;
+`;
+
+const StyledPostContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+`;
 
 function PostContainer(props) {
   return (
-    <div className="postContainer">
+    <StyledPostContainer>
       {/* {console.log(props)} */}
-      <div className="userDiv">
-        <img
-          src={props.post.thumbnailUrl}
-          className="thumbnails"
-          alt="Thumbnail"
-        />
-        <h1 className="userName">{props.post.username}</h1>
-      </div>
-      <div className="postImage">
-        <img
+      <StyledUserDiv>
+        <StyledThumbnail src={props.post.thumbnailUrl} alt="Thumbnail" />
+        <StyledUsername>{props.post.username}</StyledUsername>
+      </StyledUserDiv>
+      <StyledPost>
+        <StyledPostImage
           src={props.post.imageUrl}
-          className="pImages"
           alt="Post"
           //   width="100%"
         />
-      </div>
-      <div className="like-div">
+      </StyledPost>
+      <StyledLikeDiv>
         <h1>{props.likes} Likes!</h1>
         <button onClick={props.likePost}>Like!</button>
-      </div>
+      </StyledLikeDiv>
       <div>
         {
           <CommentSection
@@ -39,7 +70,7 @@ function PostContainer(props) {
         <hr />
       </div>
       {/* {console.log(props.displayComments)} */}
-    </div>
+    </StyledPostContainer>
   );
 }
 
