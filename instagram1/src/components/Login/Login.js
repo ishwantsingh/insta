@@ -39,7 +39,7 @@ class Login extends Component {
             />
             <button
               type="submit"
-              className="LoginButton"
+              className="loginButton"
               onClick={this.submitForm}
             >
               Log In!
