@@ -95,7 +95,7 @@ function PostContainer(props) {
           )}
           <CommentButton src={commentButton} />
         </div>
-        <LikeNum>{props.likes} likes</LikeNum>
+        <LikeNum>{props.post.likes + props.likes} likes</LikeNum>
       </LikeDiv>
       <div>
         {
@@ -104,6 +104,7 @@ function PostContainer(props) {
             addNewComment={props.addNewComment}
             changeHandler={props.changeHandler}
             newComment={props.newComment}
+            post={props.post}
           />
         }
       </div>

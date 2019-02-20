@@ -48,6 +48,13 @@ const AddCommentButton = styled.button`
   display: none;
 `;
 
+const TimeStampH1 = styled.h1`
+  margin-left: 8px;
+  font-size: 14px;
+  font-weight: normal;
+  color: rgb(180, 180, 180);
+`;
+
 function CommentSection(props) {
   return (
     <div>
@@ -65,6 +72,7 @@ function CommentSection(props) {
           ))}
         </PostComment>
       </div>
+      <TimeStampH1>{props.post.timestamp}</TimeStampH1>
       <div>
         <form>
           <CommentInput

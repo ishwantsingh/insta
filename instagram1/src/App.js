@@ -60,6 +60,7 @@ class App extends Component {
   };
 
   // like function
+
   likePost = event => {
     event.preventDefault();
     if (!this.state.clicked) {
