@@ -43,7 +43,7 @@ const InstaLogo = styled.img`
 
 const StyledInput = styled.div`
   display: flex;
-  margin-left: 60px
+  margin-left: 118px
   width: 100%;
   justify-content: center;
 `;

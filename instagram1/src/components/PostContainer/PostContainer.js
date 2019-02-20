@@ -21,7 +21,8 @@ const UserDiv = styled.div`
 `;
 
 const Username = styled.h1`
-  font-size: 23px;
+  font-size: 22px;
+  font-weight: bold;
 `;
 
 const Post = styled.div`

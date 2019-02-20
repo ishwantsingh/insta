@@ -41,6 +41,7 @@ const CommentInput = styled.input`
   border-top: 1px solid rgb(230, 230, 230);
   margin: 10px 10px 23px 10px;
   padding: 20px 0 0 0;
+  outline: none;
 `;
 
 const AddCommentButton = styled.button`
