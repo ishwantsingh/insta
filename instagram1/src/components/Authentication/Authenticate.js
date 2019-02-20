@@ -18,7 +18,7 @@ const Authenticate = App => Login => {
     }
 
     render() {
-      if (!this.state.loggedIn) return <App />;
+      if (this.state.loggedIn) return <App />;
       return <Login />;
     }
   };
