@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 
-const StyledPostComment = styled.div`
+const PostComment = styled.div`
   margin: 0 50px;
   display: flex;
   flex-direction: column;
@@ -10,7 +10,7 @@ const StyledPostComment = styled.div`
   align-content: center;
 `;
 
-const StyledPostCommentEach = styled.div`
+const PostCommentEach = styled.div`
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
@@ -21,19 +21,19 @@ const StyledPostCommentEach = styled.div`
   margin: 3px 5px 3px 5px;
 `;
 
-const StyledSingleUser = styled.h1`
+const SingleUser = styled.h1`
   font-size: 19px;
   font-weight: bold;
   margin: 0 10px 0 0;
 `;
 
-const StyledSingleText = styled.h1`
+const SingleText = styled.h1`
   font-size: 19px;
   font-weight: normal;
   margin: 0 15px 0 0;
 `;
 
-const StyledCommentInput = styled.input`
+const CommentInput = styled.input`
   width: 94%;
   border-left: 1px solid white;
   border-bottom: 1px solid white;
@@ -53,22 +53,20 @@ function CommentSection(props) {
       {/* {console.log(props.comments[0].username)} */}
 
       <div>
-        <StyledPostComment>
+        <PostComment>
           {/* {console.log(props.displayComments)} */}
 
           {props.comments.map((comment, index) => (
-            <StyledPostCommentEach>
-              <StyledSingleUser key={index}>
-                {comment.username}
-              </StyledSingleUser>
-              <StyledSingleText key={index}>{comment.text}</StyledSingleText>
-            </StyledPostCommentEach>
+            <PostCommentEach>
+              <SingleUser key={index}>{comment.username}</SingleUser>
+              <SingleText key={index}>{comment.text}</SingleText>
+            </PostCommentEach>
           ))}
-        </StyledPostComment>
+        </PostComment>
       </div>
       <div>
         <form>
-          <StyledCommentInput
+          <CommentInput
             type="text"
             placeholder=" Add a comment..."
             name="newComment"

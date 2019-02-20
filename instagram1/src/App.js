@@ -92,7 +92,7 @@ class App extends Component {
             <PostsPage
               addNewComment={this.addNewComment}
               changeHandler={this.changeHandler}
-              newComment={this.newComment}
+              newComment={this.state.newComment}
               likePost={this.likePost}
               likes={this.state.likes}
               clicked={this.state.clicked}

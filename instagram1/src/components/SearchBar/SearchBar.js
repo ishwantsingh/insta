@@ -1,5 +1,4 @@
 import React from "react";
-import image1 from "../SearchBar/ig_search_bar.png";
 import "./SearchBar.css";
 import instaIcon from "../SearchBar/instaIcon.png";
 import heartIcon from "../SearchBar/heartIcon.png";
@@ -34,6 +33,7 @@ const InstaIcon = styled.img`
 const VerticalRule = styled.h1`
   margin: 0 20px;
   font-size: 25px;
+  font-weight: normal;
 `;
 
 const InstaLogo = styled.img`
@@ -43,6 +43,7 @@ const InstaLogo = styled.img`
 
 const StyledInput = styled.div`
   display: flex;
+  margin-left: 60px
   width: 100%;
   justify-content: center;
 `;
@@ -57,6 +58,7 @@ const SearchInput = styled.input`
   padding: 5px;
   display: flex;
   align-self: flex-start;
+  text-align: center;
 `;
 
 const StyledIcons = styled.div`
@@ -89,7 +91,7 @@ function SearchBar(props) {
         <InstaLogo src={logo} />
       </StyledLogos>
       <StyledInput>
-        <SearchInput placeholder="                            Search" />
+        <SearchInput placeholder="Search" />
       </StyledInput>
       <StyledIcons>
         <CircleIcon src={circleIcon} />

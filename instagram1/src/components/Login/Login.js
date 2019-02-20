@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import styled, { css } from "styled-components";
 import logo from "../Login/ig_nameLogo.png";
 
-const StyledLogo = styled.img`
+const Logo = styled.img`
   width: 50%;
   height: 20%;
   border-radius: 50%;
@@ -10,7 +10,7 @@ const StyledLogo = styled.img`
   padding: 5px;
 `;
 
-const StyledInput = styled.input`
+const Input = styled.input`
   height: 10%;
   width: 70%;
   background-color: rgb(250, 250, 250);
@@ -22,7 +22,7 @@ const StyledInput = styled.input`
   align-self: flex-start;
 `;
 
-const StyledLoginDiv = styled.div`
+const LoginDiv = styled.div`
   background-color: rgb(250, 250, 250);
   height: 100%;
   display: flex;
@@ -31,10 +31,10 @@ const StyledLoginDiv = styled.div`
   justify-content: center;
 `;
 
-const StyledInsideDiv = styled.div`
+const InsideDiv = styled.div`
   background-color: white;
   border: 1px solid rgb(230, 230, 230);
-  height: 356px;
+  height: 396px;
   width: 350px;
   display: flex;
   flex-direction: column;
@@ -42,7 +42,7 @@ const StyledInsideDiv = styled.div`
   justify-content: center;
 `;
 
-const StyledForm = styled.form`
+const Form = styled.form`
   height: 100%;
   width: 100%;
   margin: 0 0 20px 0;
@@ -51,7 +51,7 @@ const StyledForm = styled.form`
   justify-content: center;
 `;
 
-const StyledButton = styled.button`
+const Button = styled.button`
   height: 15%;
   width: 75%;
   margin: 1.5em auto;
@@ -82,30 +82,30 @@ class Login extends Component {
 
   render() {
     return (
-      <StyledLoginDiv>
-        <StyledInsideDiv>
-          <StyledLogo src={logo} />
-          <StyledForm>
-            <StyledInput
+      <LoginDiv>
+        <InsideDiv>
+          <Logo src={logo} />
+          <Form>
+            <Input
               name="username"
               type="text"
               placeholder="Phone number, username, or email"
               onChange={this.changeHandler}
               value={this.state.username}
             />
-            <StyledInput
+            <Input
               name="password"
               type="password"
               placeholder="Password"
               onChange={this.changeHandler}
               value={this.state.password}
             />
-            <StyledButton type="submit" onClick={this.submitForm}>
+            <Button type="submit" onClick={this.submitForm}>
               Log In!
-            </StyledButton>
-          </StyledForm>
-        </StyledInsideDiv>
-      </StyledLoginDiv>
+            </Button>
+          </Form>
+        </InsideDiv>
+      </LoginDiv>
     );
   }
 }
