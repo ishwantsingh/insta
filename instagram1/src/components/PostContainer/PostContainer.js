@@ -2,62 +2,100 @@ import React from "react";
 import CommentSection from "../CommentSection/CommentSection";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
+import likeButton from "../PostContainer/likeIcon.png";
+import commentButton from "../PostContainer/commentIcon.png";
+import likedButton from "../PostContainer/lickedIcon.png";
 
-const StyledThumbnail = styled.img`
+const Thumbnail = styled.img`
   width: 40px;
   height: 40px;
   border-radius: 50%;
   margin: 0 10px 0 0;
 `;
 
-const StyledUserDiv = styled.div`
+const UserDiv = styled.div`
   display: flex;
   align-items: center;
-  margin: 1rem;
+  margin: 0.2rem 1rem;
   width: 100%;
 `;
 
-const StyledUsername = styled.h1`
+const Username = styled.h1`
   font-size: 23px;
 `;
 
-const StyledPost = styled.div`
+const Post = styled.div`
   width: 100%;
 `;
 
-const StyledPostImage = styled.img`
+const PostImage = styled.img`
   width: 100%;
+  border-radius: 2px;
 `;
 
-const StyledLikeDiv = styled.div`
+const LikeDiv = styled.div`
+  margin: 0 8px;
   display: flex;
+  align-items: center;
+  flex-wrap: wrap;
 `;
 
 const StyledPostContainer = styled.div`
+  width: 680px;
+  border: 1px solid rgb(230, 230, 230);
+  margin: 60px auto;
+  border-radius: 5px;
+  background-color: white;
   display: flex;
   flex-direction: column;
-  width: 100%;
+`;
+
+const LikeButton = styled.img`
+  width: 7%;
+  height: 7%;
+`;
+const LikeButtonRed = styled.img`
+  width: 7%;
+  height: 7%;
+`;
+
+const CommentButton = styled.img`
+  width: 7.6%;
+  height: 7.6%;
+`;
+
+const LikeNum = styled.h6`
+  font-size: 20px;
+  margin: 0 15px;
 `;
 
 function PostContainer(props) {
   return (
     <StyledPostContainer>
       {/* {console.log(props)} */}
-      <StyledUserDiv>
-        <StyledThumbnail src={props.post.thumbnailUrl} alt="Thumbnail" />
-        <StyledUsername>{props.post.username}</StyledUsername>
-      </StyledUserDiv>
-      <StyledPost>
-        <StyledPostImage
+      <UserDiv>
+        <Thumbnail src={props.post.thumbnailUrl} alt="Thumbnail" />
+        <Username>{props.post.username}</Username>
+      </UserDiv>
+      <Post>
+        <PostImage
           src={props.post.imageUrl}
           alt="Post"
           //   width="100%"
         />
-      </StyledPost>
-      <StyledLikeDiv>
-        <h1>{props.likes} Likes!</h1>
-        <button onClick={props.likePost}>Like!</button>
-      </StyledLikeDiv>
+      </Post>
+      <LikeDiv>
+        <div>
+          {console.log(props.clicked)}
+          {props.clicked ? (
+            <LikeButtonRed src={likedButton} onClick={props.likePost} />
+          ) : (
+            <LikeButton src={likeButton} onClick={props.likePost} />
+          )}
+          <CommentButton src={commentButton} />
+        </div>
+        <LikeNum>{props.likes} likes</LikeNum>
+      </LikeDiv>
       <div>
         {
           <CommentSection
@@ -67,7 +105,6 @@ function PostContainer(props) {
             newComment={props.newComment}
           />
         }
-        <hr />
       </div>
       {/* {console.log(props.displayComments)} */}
     </StyledPostContainer>

@@ -16,6 +16,7 @@ const PostsPage = props => {
             newComment={props.newComment}
             likePost={props.likePost}
             likes={props.likes}
+            clicked={props.clicked}
           />
         ))}
       </div>

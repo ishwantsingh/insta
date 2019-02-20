@@ -1,12 +1,20 @@
 import React, { Component } from "react";
 import dummyData from "./dummy-data";
-import "./App.css";
 import PropTypes from "prop-types";
 import PostsPage from "./components/PostContainer/PostsPage";
 import SearchBar from "./components/SearchBar/SearchBar";
 import Authenticate from "./components/Authentication/Authenticate";
 import Login from "./components/Login/Login";
 import styled, { css } from "styled-components";
+
+const StyledApp = styled.div`
+  background-color: rgb(250, 250, 250);
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: center;
+`;
 
 class App extends Component {
   constructor(props) {
@@ -74,11 +82,11 @@ class App extends Component {
         {/* <div>
           
         </div> */}
-        <div className="App">
+        <StyledApp>
           {/* {console.log(dummyData)} */}
-          <div>
-            <SearchBar />
-          </div>
+
+          <SearchBar />
+
           <div>
             {console.log("postPage rendering.damn it maybe")}
             <PostsPage
@@ -87,9 +95,10 @@ class App extends Component {
               newComment={this.newComment}
               likePost={this.likePost}
               likes={this.state.likes}
+              clicked={this.state.clicked}
             />
           </div>
-        </div>
+        </StyledApp>
       </div>
     );
   }

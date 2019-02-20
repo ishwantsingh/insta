@@ -95,7 +95,7 @@ class Login extends Component {
             />
             <StyledInput
               name="password"
-              type="text"
+              type="password"
               placeholder="Password"
               onChange={this.changeHandler}
               value={this.state.password}
