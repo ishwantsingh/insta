@@ -1,6 +1,35 @@
 import React from "react";
-import "./CommentSection.css";
 import PropTypes from "prop-types";
+import styled, { css } from "styled-components";
+
+const StyledPostComment = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin: 0.5rem;
+  align-content: center;
+`;
+
+const StyledPostCommentEach = styled.h1`
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+`;
+
+const StyledSingleUser = styled.div`
+  font-size: 23px;
+  margin: 10px 10px 10px 0;
+`;
+
+const StyledSingleText = styled.div`
+  display: flex;
+  justify-self: flex-start;
+  font-size: 17px;
+  margin: 15px 15px 15px 0;
+`;
+
+const StyledCommentInput = styled.input`
+  margin: 5px 0 10px 0;
+`;
 
 function CommentSection(props) {
   return (
@@ -8,31 +37,28 @@ function CommentSection(props) {
       {/* {console.log(props.comments[0].username)} */}
 
       <div>
-        <div className="postComment">
+        <StyledPostComment>
           {/* {console.log(props.displayComments)} */}
-          <h1 className="postCommentEach">
+          <StyledPostCommentEach>
             {props.comments.map((comment, index) => (
-              <div key={index} className="singleUser">
+              <StyledSingleUser key={index}>
                 {comment.username}:
-              </div>
+              </StyledSingleUser>
             ))}
-          </h1>
-          <h3 className="postCommentEach">
+          </StyledPostCommentEach>
+          <StyledPostCommentEach>
             {props.comments.map((comment, index) => (
-              <div key={index} className="singleText">
-                {comment.text}
-              </div>
+              <StyledSingleText key={index}>{comment.text}</StyledSingleText>
             ))}
-          </h3>
-        </div>
+          </StyledPostCommentEach>
+        </StyledPostComment>
       </div>
 
       <div>
         <form>
-          <input
+          <StyledCommentInput
             type="text"
             placeholder="Comment here!"
-            className="commentInput"
             name="newComment"
             onChange={props.changeHandler}
             value={props.newComment}
