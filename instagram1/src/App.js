@@ -22,17 +22,32 @@ class App extends Component {
     console.log("constructor running");
     this.state = {
       post: [],
+      posts: [],
       comments5: [],
       newComment: [],
       likes: 0,
-      clicked: false
+      clicked: false,
+      filteredPosts: []
     };
   }
 
   componentDidMount() {
     console.log("CDM is running");
-    this.setState({ post: dummyData });
+    this.setState({ post: dummyData, posts: dummyData });
   }
+
+  searchPostsHandler = e => {
+    // eslint-disable-next-line
+    console.log("search running");
+    const posts = this.state.posts.filter(p => {
+      if (p.username.includes(e.target.value)) {
+        return p;
+      }
+    });
+    this.setState({ filteredPosts: posts });
+    // console.log(posts);
+    console.log(this.state.filteredPosts);
+  };
 
   changeHandler = event => {
     // console.log(event.target.value);
@@ -86,11 +101,16 @@ class App extends Component {
         <StyledApp>
           {/* {console.log(dummyData)} */}
 
-          <SearchBar />
+          <SearchBar searchPosts={this.searchPostsHandler} />
 
           <div>
-            {console.log("postPage rendering.damn it maybe")}
+            {console.log("postPage rendering")}
             <PostsPage
+              posts={
+                this.state.filteredPosts.length > 0
+                  ? this.state.filteredPosts
+                  : this.state.posts
+              }
               addNewComment={this.addNewComment}
               changeHandler={this.changeHandler}
               newComment={this.state.newComment}

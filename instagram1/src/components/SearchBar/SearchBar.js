@@ -91,7 +91,11 @@ function SearchBar(props) {
         <InstaLogo src={logo} />
       </StyledLogos>
       <StyledInput>
-        <SearchInput placeholder="Search" />
+        <SearchInput
+          type="text"
+          placeholder="Search"
+          onKeyDown={props.searchPosts}
+        />
       </StyledInput>
       <StyledIcons>
         <CircleIcon src={circleIcon} />

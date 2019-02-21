@@ -7,7 +7,7 @@ const PostsPage = props => {
   return (
     <div>
       <div>
-        {dummyData.map((post, id) => (
+        {props.posts.map((post, id) => (
           <PostContainer
             post={post}
             key={id}

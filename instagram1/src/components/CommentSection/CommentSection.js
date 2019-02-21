@@ -65,9 +65,9 @@ function CommentSection(props) {
           {/* {console.log(props.displayComments)} */}
 
           {props.comments.map((comment, index) => (
-            <PostCommentEach>
-              <SingleUser key={index}>{comment.username}</SingleUser>
-              <SingleText key={index}>{comment.text}</SingleText>
+            <PostCommentEach key={index}>
+              <SingleUser key="user index">{comment.username}</SingleUser>
+              <SingleText key="text index">{comment.text}</SingleText>
             </PostCommentEach>
           ))}
         </PostComment>
